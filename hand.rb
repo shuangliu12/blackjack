@@ -1,4 +1,6 @@
 
+require_relative 'card.rb'
+
 class Hand
   def initialize(cards)
     @cards = cards
@@ -21,13 +23,12 @@ class Hand
     points = 0
     numaces = 0
     @cards.each do |card|
-      if card.include?('Q')||card.include?('J')||card.include?('K')||card.include?('10')
+      if card.face_card?
         points += 10
-      elsif card.include?("A") == true
+      elsif card.ace?
         numaces = numaces + 1
       else
-        arr = card.split(//)
-        points += arr[0].to_i
+        points += card.value.to_i
       end
     end
     points = count_ace(numaces, points)
