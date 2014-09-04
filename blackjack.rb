@@ -51,7 +51,7 @@ def dealer()
 
   until total_score >=17
     card2 =  $deck.card_draw
-    cards_in_hand << card1
+    cards_in_hand << card2
     puts 'Dealer was dealt:' + card2.value + card2.suit
     total_score = score(cards_in_hand)
     puts 'Dealer score:'+ total_score.to_s
